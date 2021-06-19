@@ -68,7 +68,7 @@ hobbies.push('Learning');
 // let newHobbies = ['Running', 'Learning']; //creates an arry in the first position
 // hobbies.splice(0, 1, newHobbies);
 // console.log(hobbies.length);
-console.log(hobbies);
+// console.log(hobbies);
 // hobbies.splice(-3, 2); // will go the 3rd element from the last and delete 2 elements after that
 
 let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
@@ -92,12 +92,12 @@ let persons = [
 ];
 // alert(persons.indexOf({ name: 'Arun' })); // this will construct a new anonymous object
 let indexOfArun = persons.find((x) => x.name == 'Arun');
-console.log(indexOfArun);
+// console.log(indexOfArun);
 
 let indexOfDavid = persons.findIndex((person, index, persons) => {
   return person.name === 'David';
 });
-console.log(indexOfDavid);
+// console.log(indexOfDavid);
 
 let prices = [1, 2, 3, 4];
 let calculatedTax = [];
@@ -105,9 +105,9 @@ let calculatedTax = [];
 prices.forEach((price, index, prices) => {
   calculatedTax.push(price * (1 + 0.19));
 });
-console.log(calculatedTax);
+// console.log(calculatedTax);
 
-console.log(newMonths);
+// console.log(newMonths);
 
 // Swap array with splice method
 // ------------------------------
@@ -121,4 +121,97 @@ let sum = 0;
 userInputNumberArray.map((el) => {
   sum += el * el * el;
 });
-if (sum == 153) console.log(`${sum} is an armstrong number`);
+// if (sum == 153) console.log(`${sum} is an armstrong number`);
+// -----------------------------------------------------------------------
+
+// Sorting Array
+// ------------------
+const givenArray = [8, 4, 3, 1, 10, 15, 12];
+const sortedArray = givenArray.sort((a, b) => {
+  if (a > b) {
+    return 1;
+  } else if (a === b) {
+    return 0;
+  } else {
+    return -1;
+  }
+  // return a > b ? 1
+  // : a === b ? 0
+  //           : -1;
+});
+
+// console.log(sortedArray.reverse());
+
+const filteredArray = givenArray.filter((price, index, prices) => {
+  return price > 8;
+});
+
+const filteredArrayShortNotation = givenArray.filter((price) => price > 8);
+
+// console.log(filteredArrayShortNotation.reverse());
+
+// Reduce method
+// ------------------
+const reducedValue = sortedArray.reduce(
+  (prevValue, currValue, currIndex, sortedArray) => {
+    return prevValue + currValue;
+  },
+  0
+);
+
+// console.log(reducedValue);
+// --------------------------------------------------------------------------------
+
+// String methods in Arrays
+// const givenString = 'new york; 10.33; 2021';
+// const transformedData = givenString.split(';');
+// transformedData[1] = +transformedData[1];
+
+// console.log(transformedData);
+// console.log(givenString.split(';'));
+
+// const nameArray = ['Arun', 'prasad'];
+// console.log(nameArray.join());
+// console.log(nameArray.join(''));
+
+// Spread operator
+// =======================
+
+// const nameArray = ['Arun', 'prasad'];
+// const copiedNameArray = [...nameArray];
+// // nameArray.push('A');
+// // console.log(copiedNameArray);
+// // console.log(nameArray);
+
+// // const prices1 = [1, 3, 5, 9, 2, 22];
+// // console.log(Math.max(...prices1));
+
+// const persons1 = [
+//   { name: 'Arun', age: 30 },
+//   { name: 'David', age: 32 },
+// ];
+
+// const copiedPersons = [...persons1];
+
+// persons1.push({ name: 'Agara', age: 32 });
+// persons1[0].name = 'David Albert';
+
+// console.log(persons1, copiedPersons);
+// // Since copied elements of the array are reference types, David albert change will be refleceted in both the arrays.
+
+// const copiedNewPersons = [
+//   ...persons1.map((person) => ({ name: persons.name, age: person.age })),
+// ];
+
+// copiedNewPersons[2].name = 'Agaramudhalvi';
+
+// console.log(copiedNewPersons);
+
+// Array destructuring
+// =======================
+
+// const nameFragments = ['Arun', 'prasad', 'Mr', 30];
+
+// const [fName, lName, ...otherInformation] = [...nameFragments];
+
+// console.log(fName, lName, otherInformation);
